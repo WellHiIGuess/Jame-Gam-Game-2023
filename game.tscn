@@ -1,0 +1,103 @@
+[gd_scene load_steps=12 format=3 uid="uid://c3tinxt0ar3hx"]
+
+[ext_resource type="Texture2D" uid="uid://b5bdv221ma67c" path="res://icon.svg" id="1_3wudr"]
+[ext_resource type="Script" path="res://Player.gd" id="1_g1qmj"]
+[ext_resource type="Texture2D" uid="uid://bbtlo1j16tl3" path="res://santa-left.png" id="2_6i7ut"]
+[ext_resource type="Script" path="res://line.gd" id="3_o16n3"]
+[ext_resource type="Script" path="res://Enemy.gd" id="4_82167"]
+
+[sub_resource type="GDScript" id="GDScript_iwmml"]
+script/source = "extends Node2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1va3x"]
+size = Vector2(14.5576, 20)
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_nd37f"]
+
+[sub_resource type="GDScript" id="GDScript_fbnxj"]
+script/source = "extends RigidBody2D
+
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready():
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta):
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uwl0o"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_4immo"]
+
+[node name="Node2D" type="Node2D"]
+script = SubResource("GDScript_iwmml")
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_g1qmj")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+scale = Vector2(3.73, 3.73)
+shape = SubResource("RectangleShape2D_1va3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Player/CollisionShape2D"]
+texture_filter = 1
+scale = Vector2(0.415, 0.415)
+texture = ExtResource("2_6i7ut")
+
+[node name="Camera2D" type="Camera2D" parent="Player"]
+zoom = Vector2(1.62, 1.62)
+
+[node name="Line2D" type="Line2D" parent="Player"]
+width = 1.0
+script = ExtResource("3_o16n3")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(108, 0)
+scale = Vector2(69.8, 69.8)
+texture = SubResource("PlaceholderTexture2D_nd37f")
+
+[node name="Enemy" type="CharacterBody2D" parent="."]
+position = Vector2(-238, 0)
+collision_layer = 3
+collision_mask = 3
+script = ExtResource("4_82167")
+metadata/health = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
+scale = Vector2(3.73, 3.73)
+shape = SubResource("RectangleShape2D_1va3x")
+
+[node name="Sprite2D" type="Sprite2D" parent="Enemy/CollisionShape2D"]
+modulate = Color(1, 0, 0, 1)
+scale = Vector2(0.155, 0.155)
+texture = ExtResource("1_3wudr")
+
+[node name="Bullet" type="RigidBody2D" parent="."]
+position = Vector2(42640, -18433)
+collision_layer = 2
+collision_mask = 2
+gravity_scale = 2.66454e-15
+script = SubResource("GDScript_fbnxj")
+metadata/Bullet = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bullet"]
+shape = SubResource("RectangleShape2D_uwl0o")
+
+[node name="Sprite2D" type="Sprite2D" parent="Bullet/CollisionShape2D"]
+scale = Vector2(19.47, 19.47)
+texture = SubResource("PlaceholderTexture2D_4immo")
