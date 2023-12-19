@@ -20,6 +20,19 @@ func _process(delta):
 	
 	var aim_direction = (aim_pos - global_position).normalized()
 	
+	if aim_direction.abs().x > aim_direction.abs().y:
+		print('bean')
+		if aim_direction.x > 0.0:
+			get_node('CollisionShape2D/Sprite2D').texture = preload('res://santa-right.svg')
+		else:
+			get_node('CollisionShape2D/Sprite2D').texture = preload('res://santa-left.svg')
+	else:
+		print('boon')
+		if aim_direction.y > 0.0:
+			get_node('CollisionShape2D/Sprite2D').texture = preload('res://santa-front.svg')
+		else:
+			get_node('CollisionShape2D/Sprite2D').texture = preload('res://santa-back.svg')
+	
 	if shoot_delay < SHOOT_DELAY:
 		shoot_delay -= delta
 	

@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://gf1ecax7tx1x"
-path="res://.godot/imported/santa-right.png-9f5b37d9b0b8fb92616a58c6581d198d.ctex"
+uid="uid://d3nbfbjagc4rp"
+path="res://.godot/imported/santa-left.svg-874d58b70b0b3dac020106f1456783d9.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://santa-right.png"
-dest_files=["res://.godot/imported/santa-right.png-9f5b37d9b0b8fb92616a58c6581d198d.ctex"]
+source_file="res://santa-left.svg"
+dest_files=["res://.godot/imported/santa-left.svg-874d58b70b0b3dac020106f1456783d9.ctex"]
 
 [params]
 
@@ -32,3 +32,6 @@ process/hdr_as_srgb=false
 process/hdr_clamp_exposure=false
 process/size_limit=0
 detect_3d/compress_to=1
+svg/scale=1.0
+editor/scale_with_editor_scale=false
+editor/convert_colors_with_editor_theme=false
